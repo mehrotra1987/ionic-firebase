@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="col-sm-10">
+          <ion-title>Home</ion-title>
+        </ion-col>
+        <ion-col class="col-sm-2 ion-text-end">
+          <!-- <button ion-button round (click)="signout()"></button> -->
+          <a href="#" (click)="signout()">Sign Out</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="col-sm-4">
+        Name
+      </ion-col>
+      <ion-col class="col-sm-4">
+        Phone Number
+      </ion-col>
+      <ion-col class="col-sm-4">
+        Email
+      </ion-col>
+      <ion-col class="col-sm-4">
+        isAdmin
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row *ngFor="let userDetails of userData">
+      <ion-col class="col-sm-2">
+        {{userDetails.name}}
+      </ion-col>
+      <ion-col class="col-sm-4">
+        {{userDetails.phoneNumber}}
+      </ion-col>
+      <ion-col class="col-sm-5">
+        {{userDetails.email}}
+      </ion-col>
+      <ion-col class="col-sm-1">
+        <ion-checkbox [(ngModel)]="isAdminFlag" (ionChange)="updateUserRole(userDetails.email)"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="form" [formGroup]="registerationForm" (ngSubmit)="registerUser(registerationForm.value)">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mobile Number</ion-label>
+      <ion-input type="number" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Confrim Password</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Select State</ion-label>
+      <ionic-selectable item-content formControlName="state" itemValueField="id" itemTextField="name" [items]="states"
+      >
+     </ionic-selectable>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Select Country</ion-label>
+      <ionic-selectable item-content formControlName="country" itemValueField="id" itemTextField="name" [items]="countries"
+      >
+     </ionic-selectable>
+    </ion-item>
+    
+    <ion-button type="submit" [disabled]="!this.registerationForm.valid">Sign Up</ion-button>
+  </form>
+  <ion-item>
+
+  </ion-item>
+</ion-content>

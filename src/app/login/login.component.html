@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button type="submit" [disabled]="!loginForm.valid">log In</ion-button>
+  </form>
+  <p >
+    No account yet? <a (click)="registration()">Create an account.</a>
+  </p>
+</ion-content>
